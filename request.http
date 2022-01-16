@@ -4,3 +4,11 @@ GET http://localhost:3000/movie_index
 
 GET http://localhost:3000/movie_id/1
 
+###
+GET http://localhost:3000/actor 
+Content-Type: application/json
+
+{
+  "id": "5"
+}
+
