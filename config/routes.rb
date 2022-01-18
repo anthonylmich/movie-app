@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get "/actor/:wildcard" => "actors#actor"
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get "/movie_id/:wildcard" => "movies#movie_id"
-  get "/movie_index" => "movies#index"
-  get "/actor" => "actors#show"
+
+  # Actors:
+
+  get "/actors" => "actors#index"
   get "/actor/:id" => "actors#show"
-  post "/actor" => "actors#show"
+  get "/actor" => "actors#show"
+  post "/actor" => "actors#create"
+  patch "/actor/:id" => "actors#update"
+  delete "/actor/:id" => "actors#destroy"
+  
+  # Movies: 
+
+  get "/movies" => "movies#index"
+  get "/movie/:id" => "movies#show"
+  get "/movie" => "movies#show"
+  post "/movie" => "movies#create"
+  patch "/movie/:id" => "movies#update"
+  delete "/movie/:id" => "movies#destroy"
 
 end

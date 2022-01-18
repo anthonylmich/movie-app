@@ -1,14 +1,68 @@
-GET http://localhost:3000/movie_index
+#Movies
 
-###
+### Displays movie index
+GET http://localhost:3000/movies
 
-GET http://localhost:3000/movie_id/1
+### Displays selected movie
+GET http://localhost:3000/movie/1
 
-###
-GET http://localhost:3000/actor 
+### same as above
+GET http://localhost:3000/movie?id=2
+
+### creates a new movie instance
+POST http://localhost:3000/movie
 Content-Type: application/json
 
 {
-  "id": "5"
+  "title": "bobby",
+  "year": 6666,
+  "plot": "nonsens"
 }
 
+### Updates a movie instance
+PATCH http://localhost:3000/movie/7
+Content-Type: application/json
+
+{
+  "title": "Wall-e",
+  "year": 2008,
+  "plot": "A lone robot cleaning the wastes of earth goes on an unexpected journey when he discovers something unbelievable."
+
+}
+
+### Deletes a movie instance
+DELETE http://localhost:3000/movie/6
+
+# Actors
+
+### Displays actor index
+GET http://localhost:3000/actors
+
+### Displays selected actor
+GET http://localhost:3000/actor/13
+
+### same as above
+GET http://localhost:3000/actor?id=14
+
+### creates a new actor instance
+POST http://localhost:3000/actor
+Content-Type: application/json
+
+{
+  "first_name": "Benedict",
+  "last_name": "Cumberbatch",
+  "known_for": "Sherlock"
+}
+
+### Updates a actor instance
+PATCH http://localhost:3000/actor/13
+Content-Type: application/json
+
+{
+  "first_name": "Robert",
+  "last_name": "Downey",
+  "known_for": "Iron Man"
+}
+
+###  Deletes a actor instance
+DELETE http://localhost:3000/actor/12
