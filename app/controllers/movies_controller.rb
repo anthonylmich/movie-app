@@ -35,7 +35,5 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     movie.destroy
     render json: {message: "The movie had been succesfully destroyed"}
-
   end
-  
 end
