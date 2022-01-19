@@ -4,13 +4,13 @@
 GET http://localhost:3000/movies
 
 ### Displays selected movie
-GET http://localhost:3000/movie/1
+GET http://localhost:3000/movies/1
 
 ### same as above
 GET http://localhost:3000/movie?id=2
 
 ### creates a new movie instance
-POST http://localhost:3000/movie
+POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
@@ -20,18 +20,15 @@ Content-Type: application/json
 }
 
 ### Updates a movie instance
-PATCH http://localhost:3000/movie/7
+PATCH http://localhost:3000/movies/1
 Content-Type: application/json
 
 {
-  "title": "Wall-e",
-  "year": 2008,
-  "plot": "A lone robot cleaning the wastes of earth goes on an unexpected journey when he discovers something unbelievable."
-
+ "english": true
 }
 
 ### Deletes a movie instance
-DELETE http://localhost:3000/movie/6
+DELETE http://localhost:3000/movies/6
 
 # Actors
 
@@ -39,13 +36,13 @@ DELETE http://localhost:3000/movie/6
 GET http://localhost:3000/actors
 
 ### Displays selected actor
-GET http://localhost:3000/actor/13
+GET http://localhost:3000/actors/13
 
 ### same as above
 GET http://localhost:3000/actor?id=14
 
 ### creates a new actor instance
-POST http://localhost:3000/actor
+POST http://localhost:3000/actors
 Content-Type: application/json
 
 {
@@ -64,4 +61,4 @@ Content-Type: application/json
 }
 
 ###  Deletes a actor instance
-DELETE http://localhost:3000/actor/12
+DELETE http://localhost:3000/actors/12
