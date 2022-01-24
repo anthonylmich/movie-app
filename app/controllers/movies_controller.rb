@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    movie = Movie.all
+    movie = Movie.where(english: true)
     render json: movie.as_json
   end
 
@@ -16,8 +16,8 @@ class MoviesController < ApplicationController
     movie = Movie.new(
       title: params[:title], 
       year: params[:year], 
-      plot: params[:plot]
-      director: params[:director]
+      plot: params[:plot],
+      director: params[:director],
       english: params[:english]
     )
     if movie.save

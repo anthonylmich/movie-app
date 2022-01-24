@@ -1,7 +1,7 @@
 class ActorsController < ApplicationController
 
   def index
-    actors = Actor.all
+    actors = Actor.all.order(age: :desc)
     render json: actors.as_json
   end
 
@@ -16,8 +16,8 @@ class ActorsController < ApplicationController
     actor = Actor.new(
       first_name: params[:first_name], 
       last_name: params[:last_name], 
-      known_for: params[:known_for]
-      gender: params[:gender]
+      known_for: params[:known_for],
+      gender: params[:gender],
       age: params[:age]
     )
     if actor.save
