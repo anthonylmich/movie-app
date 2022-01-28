@@ -1,16 +1,17 @@
 #Movies
-
+@domain = http://localhost:3000/
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDM0MzgwODJ9.PZHN-FvosrFQJUHYaqgkxPpbN6cBRpB4voF142QhWfs
 ### Displays movie index
-GET http://localhost:3000/movies
+GET {{domain}}/movies
 
 ### Displays selected movie
-GET http://localhost:3000/movies/1
+GET {{domain}}/movies/1
 
 ### same as above
-GET http://localhost:3000/movie?id=2
+GET {{domain}}/movie?id=2
 
 ### creates a new movie instance
-POST http://localhost:3000/movies
+POST {{domain}}/movies
 Content-Type: application/json
 
 {
@@ -20,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Updates a movie instance
-PATCH http://localhost:3000/movies/1
+PATCH {{domain}}/movies/1
 Content-Type: application/json
 
 {
@@ -28,21 +29,21 @@ Content-Type: application/json
 }
 
 ### Deletes a movie instance
-DELETE http://localhost:3000/movies/6
+DELETE {{domain}}/movies/6
 
 # Actors
 
 ### Displays actor index
-GET http://localhost:3000/actors
+GET {{domain}}/actors
 
 ### Displays selected actor
-GET http://localhost:3000/actors/13
+GET {{domain}}/actors/13
 
 ### same as above
-GET http://localhost:3000/actor?id=14
+GET {{domain}}/actor?id=14
 
 ### creates a new actor instance
-POST http://localhost:3000/actors
+POST {{domain}}/actors
 Content-Type: application/json
 
 {
@@ -52,7 +53,7 @@ Content-Type: application/json
 }
 
 ### Updates a actor instance
-PATCH http://localhost:3000/actors/14
+PATCH {{domain}}/actors/14
 Content-Type: application/json
 
 {
@@ -61,4 +62,39 @@ Content-Type: application/json
 }
 
 ###  Deletes a actor instance
-DELETE http://localhost:3000/actors/12
+DELETE {{domain}}/actors/12
+
+### Users create (signup)
+POST {{domain}}users
+Content-Type: application/json
+
+{
+  "name": "gavin",
+  "email": "gavin@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "gavin@gmail.com",
+  "password": "password"
+}
+
+### movies create
+POST {{domain}}/movies
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "title": "poor man",
+  "year": 2021,
+  "plot": "random story about a man who's poor ",
+  "director": "example",
+  "english": true
+}
+
+###

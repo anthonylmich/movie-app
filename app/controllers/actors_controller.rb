@@ -1,5 +1,6 @@
 class ActorsController < ApplicationController
-
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+  before_action :authenticate_user, only: [:index, :show]
   def index
     actors = Actor.all.order(age: :desc)
     render json: actors
@@ -26,7 +27,6 @@ class ActorsController < ApplicationController
     else
     render json: {erros: actor.errors.full_messages}, status: :unprocessable_entity 
     end
-  
   end
 
   def update

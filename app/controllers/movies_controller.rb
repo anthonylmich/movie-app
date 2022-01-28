@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_user, only: [:index, :show]
 
   def index
     movie = Movie.where(english: true)

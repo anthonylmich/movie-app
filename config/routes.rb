@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   patch "/movies/:id" => "movies#update"
   delete "/movies/:id" => "movies#destroy"
 
+  post "/users" => "users#create"
+  post "/sessions" => "sessions#create"
 end
