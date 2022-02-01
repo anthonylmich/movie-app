@@ -1,6 +1,6 @@
 #Movies
 @domain = http://localhost:3000/
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDM0MzgwODJ9.PZHN-FvosrFQJUHYaqgkxPpbN6cBRpB4voF142QhWfs
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM3ODA0ODN9.0xEZ97Emfyxp6PEr1IzDqfdu1R8fTcqwlJRjG3qH-4s
 ### Displays movie index
 GET {{domain}}/movies
 
@@ -80,12 +80,12 @@ POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "gavin@gmail.com",
+  "email": "admin@gmail.com",
   "password": "password"
 }
 
 ### movies create
-POST {{domain}}/movies
+POST {{domain}}movies
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
@@ -96,5 +96,12 @@ Content-Type: application/json
   "director": "example",
   "english": true
 }
+### movie genres create 
+POST {{domain}}genres
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
 
-###
+{
+  "movie_id": 4,
+  "genre_id": 2
+} 
