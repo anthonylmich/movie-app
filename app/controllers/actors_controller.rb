@@ -1,6 +1,6 @@
 class ActorsController < ApplicationController
-  before_action :authenticate_admin, only: [:create, :update, :destroy]
-  before_action :authenticate_user, only: [:index, :show]
+  # before_action :authenticate_admin, only: [:create, :update, :destroy]
+  # before_action :authenticate_user, only: [:index, :show]
   def index
     actors = Actor.all.order(age: :desc)
     render json: actors

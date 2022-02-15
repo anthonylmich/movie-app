@@ -1,8 +1,10 @@
 #Movies
-@domain = http://localhost:3000/
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM3ODA0ODN9.0xEZ97Emfyxp6PEr1IzDqfdu1R8fTcqwlJRjG3qH-4s
+@domain = http://localhost:3000
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDQ5OTYzNDd9.8KnbatZ_XMBWar6NZI5pPW9tzDT9q1gdzWEk0-n5XnE
 ### Displays movie index
 GET {{domain}}/movies
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
 
 ### Displays selected movie
 GET {{domain}}/movies/1
@@ -90,10 +92,10 @@ Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "title": "poor man",
+  "title": "The Great",
   "year": 2021,
-  "plot": "random story about a man who's poor ",
-  "director": "example",
+  "plot": "An old tale in which the stories of the ancients is shared with all.",
+  "director": "That guy",
   "english": true
 }
 ### movie genres create 
