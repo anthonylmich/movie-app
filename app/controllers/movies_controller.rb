@@ -3,15 +3,15 @@ class MoviesController < ApplicationController
   # before_action :authenticate_user, only: [:index, :show]
 
   def index
-    movie = Movie.where(english: true)
-    render json: movie.as_json
+    movie = Movie.all
+    render json: movie
   end
 
   def show
     id = params["id"]
     id = id.to_i
     movie = Movie.find(id)
-    render json: movie.as_json
+    render json: movie
   end
 
   def create
@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
       english: params[:english]
     )
     if movie.save
-      render json: movie.as_json
+      render json: movie
       else
       render json: {erros: movie.errors.full_messages}, status: :unprocessable_entity 
       end
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     movie.director = params[:director] || movie.director
     movie.english = params[:english] || movie.english
     if movie.save
-      render json: movie.as_json
+      render json: movie
       else
       render json: {erros: movie.errors.full_messages}, status: :unprocessable_entity 
       end

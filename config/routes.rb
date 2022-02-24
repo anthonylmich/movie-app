@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   
   # Movies: 
 
-  get "/movies" => "movies#index"
-  get "/movies/:id" => "movies#show"
-  get "/movie" => "movies#show"
-  post "/movies" => "movies#create"
-  patch "/movies/:id" => "movies#update"
-  delete "/movies/:id" => "movies#destroy"
+  defaults format: :json do
+    get "/movies" => "movies#index"
+    post "/movies" => "movies#create"
+    get "/movies/:id" => "movies#show"
+    patch "/movies/:id" => "movies#update"
+    delete "/movies/:id" => "movies#destroy"
+  end
 
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
